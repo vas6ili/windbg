@@ -1,0 +1,32 @@
+windbg ANSI Command Tree 1.0
+title {".NET WinDbg Commands"}
+body
+{"WinDbg Extensions for .NET"}
+ {"Load SOS (.NET Framework)"} {".loadby sos clr"}
+ {"Load SOS (.NET Core)"} {".loadby sos coreclr"}
+ {"Load Mex (.NET Framework)"} {".load C:\Tools\mex\x64\mex.dll"}
+ {"Load DumpAsync (.NET Framework)"} {".load C:\Tools\dumpasync\SosThreadingTools_x64.dll"}
+ {"Load NetExt"} {".load C:\Tools\netext\x64\NetExt.dll;!windex -tree"}
+ {"Load module symbols"} {"ld*"}
+{"Threads"}
+ {"List managed threads"} {"!threads"}
+ {"List managed threads (Mex)"} {"!mthreads"}
+ {"List managed threads (NetExt)"} {"!wthreads"}
+ {"Thread pool"} {"!threadpool"}
+ {"Dump stack"} {"!clrstack"}
+ {"Dump stack"} {"!wclrstack"}
+ {"Dump stack in mixed mode (NetExt)"} {"!wk"}
+ {"Dump all thread stacks (NetExt)"} {"~*e!wclrstack"}
+{"Heap"}
+ {"Heap object stats by type"} {"!dumpheap -stat"}
+{"Exceptions"}
+ {"Dump all exceptions (Mex)"} {"!dae"}
+ {"Dump all exceptions (NetExt)"} {"!wdae"}
+ {"Dump last exception on this thread (NetExt)"} {"!wpe"}
+{"ASP.NET"}
+ {"List HTTP requests (Mex)"} {"!aspxpagesext"}
+ {"List HTTP requests (NetExt)"} {"!whttp"}
+ {"Dump Http runtimes (NetExt)"} {"!wruntime"}
+{"Misc"}
+ {"Log output to file"} {".logopen /t /u D:\Temp\WinDbg.output.txt"}
+ {"Close log"} {".logclose"}
